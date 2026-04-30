@@ -1,0 +1,143 @@
+{
+    "20260414_160844_0.STEP": {
+        "slanted_through_step": [
+            {
+                "faces": [
+                    41,
+                    43
+                ],
+                "bottoms": [
+                    41
+                ]
+            }
+        ],
+        "blind_hole": [
+            {
+                "faces": [
+                    37,
+                    13
+                ],
+                "bottoms": [
+                    13
+                ]
+            }
+        ],
+        "rectangular_passage": [
+            {
+                "faces": [
+                    26,
+                    27,
+                    28,
+                    29
+                ],
+                "bottoms": []
+            },
+            {
+                "faces": [
+                    32,
+                    33,
+                    30,
+                    31
+                ],
+                "bottoms": []
+            }
+        ],
+        "triangular_passage": [
+            {
+                "faces": [
+                    16,
+                    14,
+                    15
+                ],
+                "bottoms": []
+            }
+        ],
+        "triangular_blind_step": [
+            {
+                "faces": [
+                    42,
+                    44
+                ],
+                "bottoms": [
+                    44
+                ]
+            }
+        ],
+        "Oring": [
+            {
+                "faces": [
+                    25,
+                    2,
+                    10
+                ],
+                "bottoms": [
+                    10
+                ]
+            }
+        ],
+        "2sides_through_step": [
+            {
+                "faces": [
+                    24,
+                    11,
+                    21,
+                    22
+                ],
+                "bottoms": [
+                    24
+                ]
+            }
+        ],
+        "rectangular_pocket": [
+            {
+                "faces": [
+                    17,
+                    18,
+                    3,
+                    19,
+                    20
+                ],
+                "bottoms": [
+                    3
+                ]
+            }
+        ],
+        "6sides_pocket": [
+            {
+                "faces": [
+                    1,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "bottoms": [
+                    1
+                ]
+            }
+        ],
+        "triangular_pocket": [
+            {
+                "faces": [
+                    34,
+                    35,
+                    12,
+                    36
+                ],
+                "bottoms": [
+                    12
+                ]
+            }
+        ],
+        "rectangular_through_step": [
+            {
+                "faces": [
+                    0
+                ],
+                "bottoms": []
+            }
+        ]
+    }
+}

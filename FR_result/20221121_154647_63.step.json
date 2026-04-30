@@ -1,0 +1,78 @@
+{
+    "F:/MFR/EAGNet/EAGLab/dataset/step/val/20221121_154647_63.step": {
+        "round": [
+            {
+                "faces": [
+                    2
+                ],
+                "bottoms": []
+            }
+        ],
+        "through_hole": [
+            {
+                "faces": [
+                    23
+                ],
+                "bottoms": []
+            },
+            {
+                "faces": [
+                    0
+                ],
+                "bottoms": []
+            }
+        ],
+        "slanted_through_step": [
+            {
+                "faces": [
+                    17,
+                    19
+                ],
+                "bottoms": [
+                    19
+                ]
+            },
+            {
+                "faces": [
+                    4,
+                    15
+                ],
+                "bottoms": [
+                    15
+                ]
+            },
+            {
+                "faces": [
+                    21,
+                    22
+                ],
+                "bottoms": [
+                    22
+                ]
+            }
+        ],
+        "chamfer": [
+            {
+                "faces": [
+                    8
+                ],
+                "bottoms": []
+            }
+        ],
+        "6sides_passage": [
+            {
+                "faces": [
+                    1,
+                    3,
+                    5,
+                    6,
+                    9,
+                    11,
+                    13,
+                    16
+                ],
+                "bottoms": []
+            }
+        ]
+    }
+}

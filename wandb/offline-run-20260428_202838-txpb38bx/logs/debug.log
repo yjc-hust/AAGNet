@@ -1,0 +1,23 @@
+2026-04-28 20:28:38,290 INFO    MainThread:23308 [wandb_setup.py:_flush():81] Current SDK version is 0.24.2
+2026-04-28 20:28:38,291 INFO    MainThread:23308 [wandb_setup.py:_flush():81] Configure stats pid to 23308
+2026-04-28 20:28:38,291 INFO    MainThread:23308 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2026-04-28 20:28:38,292 INFO    MainThread:23308 [wandb_init.py:setup_run_log_directory():717] Logging user logs to C:\Users\Lenovo\AAGNet\wandb\offline-run-20260428_202838-txpb38bx\logs\debug.log
+2026-04-28 20:28:38,292 INFO    MainThread:23308 [wandb_init.py:setup_run_log_directory():718] Logging internal logs to C:\Users\Lenovo\AAGNet\wandb\offline-run-20260428_202838-txpb38bx\logs\debug-internal.log
+2026-04-28 20:28:38,292 INFO    MainThread:23308 [wandb_init.py:init():844] calling init triggers
+2026-04-28 20:28:38,293 INFO    MainThread:23308 [wandb_init.py:init():849] wandb.init called with sweep_config: {}
+config: {'edge_attr_dim': 12, 'node_attr_dim': 10, 'edge_attr_emb': 64, 'node_attr_emb': 64, 'edge_grid_dim': 0, 'node_grid_dim': 7, 'edge_grid_emb': 0, 'node_grid_emb': 64, 'num_layers': 3, 'delta': 2, 'mlp_ratio': 2, 'drop': 0.25, 'drop_path': 0.25, 'head_hidden_dim': 64, 'conv_on_edge': False, 'use_uv_gird': True, 'use_edge_attr': True, 'use_face_attr': True, 'seed': 42, 'device': 'cpu', 'architecture': 'AAGNetGraphEncoder', 'dataset_type': 'full', 'dataset': 'E:\\data_training\\dataset', 'epochs': 100, 'lr': 0.01, 'weight_decay': 0.01, 'batch_size': 256, 'ema_decay_per_epoch': 0.5, 'seg_a': 1.0, 'inst_a': 1.0, 'bottom_a': 1.0, '_wandb': {}}
+2026-04-28 20:28:38,293 INFO    MainThread:23308 [wandb_init.py:init():892] starting backend
+2026-04-28 20:28:40,658 INFO    MainThread:23308 [wandb_init.py:init():895] sending inform_init request
+2026-04-28 20:28:40,691 INFO    MainThread:23308 [wandb_init.py:init():903] backend started and connected
+2026-04-28 20:28:40,692 INFO    MainThread:23308 [wandb_init.py:init():973] updated telemetry
+2026-04-28 20:28:40,778 INFO    MainThread:23308 [wandb_init.py:init():997] communicating run to backend with 90.0 second timeout
+2026-04-28 20:28:41,033 INFO    MainThread:23308 [wandb_init.py:init():1042] starting run threads in backend
+2026-04-28 20:28:41,204 INFO    MainThread:23308 [wandb_run.py:_console_start():2529] atexit reg
+2026-04-28 20:28:41,204 INFO    MainThread:23308 [wandb_run.py:_redirect():2377] redirect: wrap_raw
+2026-04-28 20:28:41,204 INFO    MainThread:23308 [wandb_run.py:_redirect():2446] Wrapping output streams.
+2026-04-28 20:28:41,204 INFO    MainThread:23308 [wandb_run.py:_redirect():2469] Redirects installed.
+2026-04-28 20:28:41,209 INFO    MainThread:23308 [wandb_init.py:init():1082] run started, returning control to user process
+2026-04-28 20:28:41,267 INFO    MainThread:23308 [wandb_config.py:__setitem__():154] [no run ID] config set total_params = 435674 - <bound method Run._config_callback of <wandb.sdk.wandb_run.Run object at 0x0000026BA372EE80>>
+2026-04-28 20:28:41,267 INFO    MainThread:23308 [wandb_run.py:_config_callback():1404] config_cb total_params 435674 None
+2026-04-28 20:28:41,275 INFO    wandb-AsyncioManager-main:23308 [service_client.py:_forward_responses():94] Reached EOF.
+2026-04-28 20:28:41,275 INFO    wandb-AsyncioManager-main:23308 [mailbox.py:close():154] Closing mailbox, abandoning 0 handles.

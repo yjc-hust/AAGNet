@@ -203,6 +203,6 @@ class MFInstSegDataset(BaseDataset):
 
 
 if __name__ == '__main__':
-    dataset = MFInstSegDataset(root_dir='E:\\AAGNet\\dataset\\data', split='test', center_and_scale=True, normalize=False)
+    dataset = MFInstSegDataset(root_dir='E:\data_training\dataset', split='test', center_and_scale=True, normalize=False)
     print(dataset[0])
     

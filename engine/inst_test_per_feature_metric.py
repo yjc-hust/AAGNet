@@ -20,9 +20,12 @@ from utils.misc import seed_torch
 
 
 EPS = 1e-6
+# 实例分割过程中经softmax后, 超过0.5即被认为是对应的特征
 INST_THRES = 0.5
+# 底面识别过程中经softmax后, 超过0.5即被认为是对应的特征
 BOTTOM_THRES = 0.5
 
+# 特征名称列表, 根据语义分割出的对应索引来获取其对应的特征类型
 feat_names = ['chamfer', 'through_hole', 'triangular_passage', 'rectangular_passage', '6sides_passage',
               'triangular_through_slot', 'rectangular_through_slot', 'circular_through_slot',
               'rectangular_through_step', '2sides_through_step', 'slanted_through_step', 'Oring', 'blind_hole',
@@ -38,7 +41,7 @@ def print_class_metric(metric):
         string += feat_names[i] + ': ' + str(metric[i]) + ', '
     print(string)
 
-
+# 创建一个分割类
 class FeatureInstance():
     def __init__(self, name:int = None, 
                        faces:np.array = None, 
@@ -53,7 +56,9 @@ def parser_label(inst_label, seg_label, bottom_label):
     # parse instance label
     inst_label = np.array(inst_label, dtype=np.uint8)[0]
     used_faces = []
+    # 利用将二维np向量转换为枚举,以实现逐行遍历, 这种方法与np中对于多维向量的定义有关
     for row_idx, row in enumerate(inst_label):
+        # 如果某行的和为0, 则意味着该行内不存在某面与某面之间属于同一特征关系, 因此略过
         if np.sum(row) == 0:
             # stock face, no linked face, so the sum of the column is 0
             continue
@@ -302,7 +307,7 @@ if __name__ == '__main__':
     model = model.to(device)
 
     model_param = torch.load(".\\weights\\weight_on_MFInstseg.pth", map_location=device)
-    model.load_state_dict(model_param) 
+    model.load_state_dict(model_param)
 
     test_dataset = MFInstSegDataset(root_dir=dataset, split='test', 
                                      center_and_scale=False, normalize=True, random_rotate=False,

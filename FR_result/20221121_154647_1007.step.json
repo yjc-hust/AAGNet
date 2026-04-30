@@ -1,0 +1,77 @@
+{
+    "20221121_154647_1007.step": {
+        "Oring": [
+            {
+                "faces": [
+                    24,
+                    27,
+                    28
+                ],
+                "bottoms": [
+                    27
+                ]
+            }
+        ],
+        "h_circular_end_blind_slot": [
+            {
+                "faces": [
+                    8,
+                    23,
+                    6,
+                    7
+                ],
+                "bottoms": [
+                    23
+                ]
+            }
+        ],
+        "triangular_passage": [
+            {
+                "faces": [
+                    9,
+                    10,
+                    11
+                ],
+                "bottoms": []
+            }
+        ],
+        "6sides_pocket": [
+            {
+                "faces": [
+                    16,
+                    17,
+                    25,
+                    12,
+                    13,
+                    14,
+                    15
+                ],
+                "bottoms": [
+                    25
+                ]
+            }
+        ],
+        "circular_end_pocket": [
+            {
+                "faces": [
+                    19,
+                    20,
+                    21,
+                    22,
+                    26
+                ],
+                "bottoms": [
+                    26
+                ]
+            }
+        ],
+        "through_hole": [
+            {
+                "faces": [
+                    18
+                ],
+                "bottoms": []
+            }
+        ]
+    }
+}

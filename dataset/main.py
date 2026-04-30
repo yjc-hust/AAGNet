@@ -192,7 +192,7 @@ if __name__ == '__main__':
     cand_feat_weights = [0.6, 0.6, 1, 1, 0.3, 0.3]
     dataset_dir = 'data'
     combo_range = [5, 14]
-    num_samples = 22000
+    num_samples = 200
     num_workers = 12
 
     if not os.path.exists(dataset_dir):

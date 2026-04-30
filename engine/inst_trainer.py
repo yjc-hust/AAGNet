@@ -1,7 +1,9 @@
 import os
+os.add_dll_directory(r"D:\anaconda\envs\aagnet_py38\Library\bin")
+from OCC.Core.STEPControl import STEPControl_Reader
+import os
 import time
 from tqdm import tqdm
-
 import torch
 from torch import nn
 # import torch._dynamo
@@ -15,8 +17,10 @@ from torchmetrics.classification import (
     MulticlassJaccardIndex)
 import wandb
 
-from dataloader.mfinstseg import MFInstSegDataset
+import sys
+sys.path.append(r'C:/Users/Lenovo/AAGNet')  # 添加 AAGNet 根目录到 sys.path
 from models.inst_segmentors import AAGNetSegmentor
+from dataloader.mfinstseg import MFInstSegDataset
 from utils.misc import seed_torch, init_logger, print_num_params
 
 
@@ -54,15 +58,15 @@ if __name__ == '__main__':
                 "use_face_attr": True,
 
                 "seed": 42,
-                "device": 'cuda',
+                "device": 'cpu',
                 "architecture": "AAGNetGraphEncoder", # recommend: AAGNetGraphEncoder option: GCN SAGE GIN GAT GATv2 DeeperGCN AAGNetGraphEncoder AAGNetGraphEncoderV2
                 "dataset_type": "full",
-                "dataset": "../traning_data/data2",
+                "dataset": "E:\data_training\dataset_occ2",
 
                 "epochs": 100,
                 "lr": 1e-2,
                 "weight_decay": 1e-2,
-                "batch_size": 256,
+                "batch_size": 16,
                 "ema_decay_per_epoch": 1. / 2.,
                 "seg_a": 1.,
                 "inst_a": 1.,

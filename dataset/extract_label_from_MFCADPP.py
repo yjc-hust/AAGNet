@@ -42,7 +42,12 @@ def read_step_with_labels(filename):
         if name:
             nameid = name
             # id_map[face] = nameid
-            ids.append(int(nameid))
+            try:
+               ids.append(int(nameid))
+            except ValueError:
+    # STEP 里出现 nameid = 'NONE'，说明该面没有有效标签
+    # 用 -1 表示未标注/忽略类
+               ids.append(-1)
 
     return ids
 
@@ -60,8 +65,8 @@ def generate_graph(shape_dir, graph_path, shape_name):
 
 
 if __name__ == '__main__':
-    shape_dir = "steps"
-    graph_dir = "labels"
+    shape_dir = "E:\data_training\dataset_sw1\steps"
+    graph_dir = "E:\data_training\dataset_sw1\labels"
 
     if not os.path.exists(graph_dir):
         os.mkdir(graph_dir)
