@@ -1,0 +1,84 @@
+
+    def get_generated_faces(
+        algo: BRepAlgoAPI_BooleanOperation, 
+        stock_shape: TopoDS_Shape, 
+        tool_face_map: Dict[str, TopoDS_Face], 
+        boolean_type: BooleanType
+    ) -> Dict[str, List[TopoDS_Face]]:
+       
+        generated_map = {role: [] for role in tool_face_map.keys()}
+        if not stock_shape: return generated_map
+
+        res_shape = algo.Shape()
+        orphan_faces = occ_utils.list_face(res_shape)
+        context = IntTools_Context()
+        
+        for orphan in orphan_faces:
+            # -----------------------------------------------------------
+            # 1. 提取孤儿面的绝对内部锚点
+            # -----------------------------------------------------------
+            pnt3d_orphan = gp_Pnt()
+            pnt2d_orphan = gp_Pnt2d()
+            
+            status = BOPTools_AlgoTools3D.PointInFace(orphan, pnt3d_orphan, pnt2d_orphan, context)
+            if status != 0: continue
+
+            # 计算孤儿锚点的真实拓扑法向
+            geom_surf_orphan = BRep_Tool.Surface(orphan)
+            props_orphan = GeomLProp_SLProps(geom_surf_orphan, pnt2d_orphan.X(), pnt2d_orphan.Y(), 1, 1e-6)
+            if not props_orphan.IsNormalDefined(): continue
+                
+            n_orphan = props_orphan.Normal()
+            if orphan.Orientation() == TopAbs_REVERSED:
+                n_orphan.Reverse()
+
+            # -----------------------------------------------------------
+            # 2. 遍历刀具面
+            # -----------------------------------------------------------
+            for role, tool_face in tool_face_map.items():
+                
+                # 无限曲面共面性检验 (3D 投影)
+                tool_geom_surf = BRep_Tool.Surface(tool_face)
+                proj = GeomAPI_ProjectPointOnSurf(pnt3d_orphan, tool_geom_surf)
+                
+                # 如果无法投影，或者 3D 投影绝对距离 > 1e-4，说明不满足
+                if proj.NbPoints() == 0 or proj.LowerDistance() > 1e-4:
+                    continue
+                    
+                # 边界拓扑检验 (2D UV 分类器)
+                # 判断点是在刀具的边界内还是边界外
+                u_proj, v_proj = proj.LowerDistanceParameters()
+                pnt2d_proj = gp_Pnt2d(u_proj, v_proj)
+                
+                # 使用OCCT面分类器，在 2D UV 空间进行判定
+                classifier = BRepClass_FaceClassifier(tool_face, pnt2d_proj, 1e-6)
+                state = classifier.State()
+                
+                # TopAbs_OUT: 共面但是在刀具外部
+                # TopAbs_ON: 刚好压在刀具的物理边线上
+
+                if state != TopAbs_IN:
+                    continue 
+                
+                # -----------------------------------------------------------
+                # 法向匹配
+                # -----------------------------------------------------------
+                props_tool = GeomLProp_SLProps(tool_geom_surf, u_proj, v_proj, 1, 1e-6)
+                if not props_tool.IsNormalDefined(): continue
+                    
+                n_tool = props_tool.Normal()
+                if tool_face.Orientation() == TopAbs_REVERSED:
+                    n_tool.Reverse()
+                
+                # 如果是减材 CUT，法向反向
+                dot_val = n_orphan.Dot(n_tool)
+                
+                if boolean_type == BooleanType.CUT and dot_val < -0.9:
+                    generated_map[role].append(orphan)
+                    break  # 找到后不再匹配其他面
+                    
+                elif boolean_type == BooleanType.FUSE and dot_val > 0.9:
+                    generated_map[role].append(orphan)
+                    break
+
+        return generated_map

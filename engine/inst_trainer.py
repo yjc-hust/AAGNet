@@ -61,12 +61,12 @@ if __name__ == '__main__':
                 "device": 'cpu',
                 "architecture": "AAGNetGraphEncoder", # recommend: AAGNetGraphEncoder option: GCN SAGE GIN GAT GATv2 DeeperGCN AAGNetGraphEncoder AAGNetGraphEncoderV2
                 "dataset_type": "full",
-                "dataset": "E:\data_training\dataset_occ2",
+                "dataset": r"E:\data_training\dataset_sw33",
 
                 "epochs": 100,
                 "lr": 1e-2,
                 "weight_decay": 1e-2,
-                "batch_size": 16,
+                "batch_size": 4,
                 "ema_decay_per_epoch": 1. / 2.,
                 "seg_a": 1.,
                 "inst_a": 1.,

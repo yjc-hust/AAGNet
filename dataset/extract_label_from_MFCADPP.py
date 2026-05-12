@@ -65,8 +65,8 @@ def generate_graph(shape_dir, graph_path, shape_name):
 
 
 if __name__ == '__main__':
-    shape_dir = "E:\data_training\dataset_sw1\steps"
-    graph_dir = "E:\data_training\dataset_sw1\labels"
+    shape_dir = r"E:\data_training\dataset_sw1_1\steps"
+    graph_dir = r"E:\data_training\dataset_sw1_1\labels"
 
     if not os.path.exists(graph_dir):
         os.mkdir(graph_dir)

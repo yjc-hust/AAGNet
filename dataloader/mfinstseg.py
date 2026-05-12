@@ -177,6 +177,9 @@ class MFInstSegDataset(BaseDataset):
             labels_data = json.load(read_file)
         _, labels = labels_data[0]
         seg_label, inst_label, bottom_label = labels['seg'], labels['inst'], labels['bottom']
+        print(f"DEBUG {fn}: seg={len(seg_label)}")
+        print(f"DEBUG {fn}: inst={len(inst_label)}")
+        print(f"DEBUG {fn}: bottom={len(bottom_label)}")
         assert len(seg_label) == len(inst_label) and len(seg_label) == len(bottom_label), \
             'have wrong label: '+ fn
         assert num_faces == len(seg_label), \

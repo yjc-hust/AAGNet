@@ -21,6 +21,8 @@ from torchmetrics.classification import (
     MulticlassJaccardIndex,
     BinaryAveragePrecision)
 
+import sys
+sys.path.append(r'C:/Users/Lenovo/AAGNet')  # 添加 AAGNet 根目录到 sys.path
 from dataloader.mfinstseg import MFInstSegDataset
 from models.inst_segmentors import AAGNetSegmentor
 from utils.misc import seed_torch
@@ -51,15 +53,15 @@ if __name__ == '__main__':
         "use_face_attr": True,
 
         "seed": 42,
-        "device": 'cuda',
+        "device": 'cpu',
         "architecture": "AAGNetGraphEncoder", # recommend: AAGNetGraphEncoder option: GCN SAGE GIN GAT GATv2 DeeperGCN AAGNetGraphEncoder AAGNetGraphEncoderV2
         "dataset_type": "full",
-        "dataset": "E:\\traning_data\\data2",
+        "dataset": r"E:\data_training\dataset_sw33",
 
         "epochs": 100,
         "lr": 1e-2,
         "weight_decay": 1e-2,
-        "batch_size": 256,
+        "batch_size": 4,
         "ema_decay_per_epoch": 1. / 2.,
         "seg_a": 1.,
         "inst_a": 1.,

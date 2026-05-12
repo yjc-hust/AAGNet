@@ -10,8 +10,8 @@ BRepNorm: 面向 AAGNet 输入适配的 B-Rep / STEP 归一化模块
 6. 输出归一化报告：供论文实验统计与后续 AAGNet 分析使用
 
 说明：
-- 对 MFCAD++ 训练集，建议使用 --mode light，避免改变 face 数量导致 label 错位。
-- 对 pyOCC / SolidWorks 无标签测试集，可以使用 --mode strong，允许更强拓扑清洗。
+- 对 pyOCC 训练集，建议使用 --mode light，避免改变 face 数量导致 label 错位。
+- 对SolidWorks无标签测试集，可以使用 --mode strong，允许更强拓扑清洗。
 """
 
 import json
@@ -281,7 +281,7 @@ def normalize_geometry(shape, target_box: float = 2.0):
 def repair_shape_light(shape):
     """
     轻量修复：
-    - 适合 MFCAD++ 有标签训练集
+    - 适合有标签训练集
     - 尽量不改变拓扑结构
     - 只做基础 ShapeFix，不做强同域合并
     """
@@ -296,7 +296,7 @@ def repair_shape_light(shape):
 def repair_shape_strong(shape):
     """
     强修复：
-    - 适合 pyOCC / SolidWorks 无标签模型
+    - 适合无标签模型
     - 可能改变面、边数量
     - 不建议直接用于带 face label 的训练集
     """

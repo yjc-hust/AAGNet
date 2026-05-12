@@ -1,0 +1,48 @@
+{
+    "file_name": "20260414_160844_119.step",
+    "valid_before": true,
+    "valid_after": true,
+    "face_count_before": 31,
+    "face_count_after": 31,
+    "edge_count_before": 144,
+    "edge_count_after": 144,
+    "bbox_before": [
+        -1.0000462486973048e-07,
+        -1.000000004440892e-07,
+        -1e-07,
+        52.043892236594004,
+        39.381215662053,
+        86.13085916738
+    ],
+    "bbox_after": [
+        -0.604242209962428,
+        -0.45722548817127184,
+        -1.0000000976779522,
+        0.604242209962428,
+        0.45722548817127184,
+        1.000000097677952
+    ],
+    "scale_factor": 0.02322048121906352,
+    "center_before": [
+        26.02194606829469,
+        19.6906077810265,
+        43.06542953369
+    ],
+    "surface_type_before": {
+        "Plane": 26,
+        "Cylinder": 5
+    },
+    "surface_type_after": {
+        "Plane": 26,
+        "Cylinder": 5
+    },
+    "curve_type_before": {
+        "Line": 124,
+        "Circle": 20
+    },
+    "curve_type_after": {
+        "Line": 124,
+        "Circle": 20
+    },
+    "warning": []
+}

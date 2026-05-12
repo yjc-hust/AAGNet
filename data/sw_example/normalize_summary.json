@@ -1,0 +1,24 @@
+{
+    "input_steps": "C:\\Users\\Lenovo\\AAGNet\\data\\steps",
+    "output_dataset": "C:\\Users\\Lenovo\\AAGNet\\data\\sw_example",
+    "mode": "light",
+    "total": 196,
+    "success": 196,
+    "failed": 0,
+    "failed_files": [],
+    "label_copied": 0,
+    "warnings": [
+        {
+            "file": "20260414_160844_11.step",
+            "warning": [
+                "normalized shape is still invalid"
+            ]
+        },
+        {
+            "file": "20260414_160844_13.step",
+            "warning": [
+                "normalized shape is still invalid"
+            ]
+        }
+    ]
+}
